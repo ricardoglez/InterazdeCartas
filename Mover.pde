@@ -16,7 +16,7 @@ class Mover {
     acceleration = new PVector(0, 0);
     mass = .2;
     estado = false;
-    imagen = loadImage("cartaA.jpg");
+    imagen = loadImage("Back.png");
   }
 
   void applyForce(PVector force) {
