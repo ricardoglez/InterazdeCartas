@@ -57,7 +57,6 @@ void setup() {
     degrees = radians(gd);
     x = ra * cos(degrees);
     y = ra * sin(degrees);
-    //println(x, y);
     cartaM[iteracion] = new Mover(x, y);
     iteracion++;
   }
@@ -71,14 +70,14 @@ void draw() {
   posM[2] = new Attractor(250, 150);
   background(medio1);
   //Comenzar desde el centro
-  pushMatrix();
-  translate(1200 / 2, 1000 / 2);
-  // Calibrar el mouse a la nueva ubicacion
-  sensY = mouseY - 1000 / 2;
-  sensX = mouseX - 1200 / 2;
-  //Dibujar las cartas y mostrar cual esta seleccionada
-  proc1();
-  popMatrix();
+    pushMatrix();
+      translate(1200 / 2, 1000 / 2);
+      // Calibrar el mouse a la nueva ubicacion
+      sensY = mouseY - 1000 / 2;
+      sensX = mouseX - 1200 / 2;
+      //Dibujar las cartas y mostrar cual esta seleccionada
+      proc1();
+    popMatrix();
   // Si esta ocupada alguna posicion
   // dibujar la capa de las cartas Mostradas
   if (posicionesOcupadas[0] || posicionesOcupadas[1] || posicionesOcupadas[2]) {
@@ -117,8 +116,7 @@ void draw() {
     proc1();
    // cartasMostradas.popMatrix();
     fill(claro, 126);
-  } else {
-  }
+  } 
 }
 //---------------------------------------------------------------//
 ///****
@@ -222,11 +220,8 @@ boolean revisarPos(int i) {
 //---------------------------------------------------------------//
 boolean estadoRein() {
   boolean estado = false;
-  
   //Revisar la posicion del sensor 
   //y dibujar un ellipse de fondo del botn de estadoRein tirada
-  //fill(255,0,0);
-  //rect(sensX+width/2,sensY+height/2, 200,200);
   if (dist(-110, -80, sensX - 600, 55 + sensY - 500) <= 60) {
     text("Tirar de Nuevo", 1200-110,1000-80);
     //Si se da clic al boton de restart
@@ -242,15 +237,15 @@ boolean estadoRein() {
       posicionesOcupadas[1] = false;
       posicionesOcupadas[2] = false;
        cartasMostradas.beginDraw();
-       cartasMostradas.background(medio1);
+         cartasMostradas.background(medio1);
        cartasMostradas.endDraw();
+       
        capa1.beginDraw();
-       capa1.background(medio1);
+         capa1.background(medio1);
        capa1.endDraw();
-      //fill(medio1, 20);
+       
     } else {
       estado =  false; 
-      //noFill();
       fill(medio1, 20);
     }
   }
